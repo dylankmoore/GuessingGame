@@ -12,7 +12,7 @@ void GuessingGame()
     int maxGuesses = GetGuesses(difficulty);
 
     //prompt to guess secret number
-    Console.WriteLine("\n\nWhat do you think the secret number is?\n");
+    Console.WriteLine("\n\nWhat do you think the secret number is?\nPlease type the integer.\n");
 
     //generate random variable between 1 - 100
     int secretNumber = new Random().Next(1, 101);
@@ -40,18 +40,15 @@ void GuessingGame()
 
     else
     {
-
-             // user gets specific amount of guesses based on selection
+    
+           // user gets specific amount of guesses based on selection
              for (int attempt = 1; attempt <= maxGuesses; attempt++)
-              {
-             //user's guess display
-            Console.WriteLine($"Your guess is: (attempt {attempt} out of {maxGuesses}): \n");
-
+             {
             //taking user's guess and saving as variable
             int userGuess = int.Parse(Console.ReadLine());
 
-            //display user's guess
-            Console.WriteLine($"You guessed: {userGuess}\n");
+            //user's guess display
+            Console.WriteLine($"\nYour guess is: {userGuess} (attempt {attempt} out of {maxGuesses}): \n");
 
             //compare guess with secret number
             if (userGuess == secretNumber)
@@ -65,7 +62,7 @@ void GuessingGame()
             else
             //display high/low message
             {
-                Console.WriteLine(userGuess < secretNumber ? "Sorry, that number is too low!" : "Sorry, that number is too high!\n");
+                Console.WriteLine(userGuess < secretNumber ? "Sorry, that number is too low! Try again." : "Sorry, that number is too high! Try again. \n");
             }
         }
 
